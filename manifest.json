@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "StyleCrafts",
+  "version": "1.0",
+  "permissions": ["activeTab", "scripting", "downloads", "tabs", "tabCapture", "desktopCapture", "contextMenus", "sidePanel", "offscreen", "commands"],
+  "icons": {
+    "16": "assets/icons/logo_16.png",
+    "48": "assets/icons/logo_48.png",
+    "128": "assets/icons/logo_128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content-script.js"]
+    }
+  ],
+  "side_panel": {
+    "default_path": "side-panel.html"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["side-panel.html", "assets/icons/logo_128.png"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/icons/logo_16.png",
+      "48": "assets/icons/logo_48.png",
+      "128": "assets/icons/logo_128.png"
+    },
+    "default_title": "Click to open StyleCrafts"
+  },
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoaHEk20T+DqzWCnJMRkdLyp5TrCiegycAM0ucYMWFQSAg58pGmf3tjPH5ttnffr2PO/Dewr+xUsQtJX0vwF1kWG9BbAVlfTdzl4NGjLAEul0iDIicbGbBTvi7ZrcUSBlvUtTPQ063j2KvYPSUuBs4gYSuxxvdnvI8iznFiDfKa4ubv2aQkeNxLycskZb6z9sFgr3xYXInmgQ0YtgvNg91vJyZOYEsco29zcm0ltowVuh58zO6stwmqqOYbkiW4BruskKIZGAsAbdLg0JD10EoHLwKuGVybA86ASDKhbCHF1BhDKutPVrLQdHC5V++KxUmALiJq7TV8Usorok390rwQIDAQAB"
+}
